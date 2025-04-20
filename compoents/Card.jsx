@@ -23,7 +23,13 @@ const Card = ({ title, subtitle, color, onPress, iconpath,titleColor }) => (
  
   <TouchableOpacity style={[styles.card, { backgroundColor: color }]} onPress={onPress}>
     {/* Placeholder Icon */}
-    <Text style={styles.title}>{title}</Text>
+   {title=="Know your city" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"#4E9C91", textAlign:"center"}}>{title}</Text>} 
+   {title=="EO Message to citizens" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"#8380B0", textAlign:"center"}}>{title}</Text>} 
+   {title=="Chariman Message" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"white", textAlign:"center"}}>{title}</Text>} 
+   {title=="Track your complaints" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"#F27A59", textAlign:"center"}}>{title}</Text>} 
+   {title=="Track garbage Vehicle" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"black", textAlign:"center"}}>{title}</Text>} 
+   {title=="Near by Toilets" && <Text style={{fontWeight:"bold", fontSize:25 , marginBottom:4 , color:"white", textAlign:"center"}}>{title}</Text>} 
+  
     
     {title === "Know your city" && <Image source={require("../assets/images/smallCity.png")} style={{width:100,height:100,margin:"auto"}}/>}
     {title=="EO Message to citizens" && <Image source={require("../assets/images/message.png")} style={{width:100,height:100,margin:"auto"}}/>}

@@ -93,6 +93,14 @@ const HomeScreen = () => {
       {/* Nearby From You */}
      
       <ToolGrid/>
+      <View>
+        <Text>HEllo</Text>
+        <Text>HEllo</Text>
+        <Text>HEllo</Text>
+        <Text>HEllo</Text>
+        <Text>HEllo</Text>
+        <Text>HEllo</Text>
+      </View>
     </ScrollView>
     
     </>
