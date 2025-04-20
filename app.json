@@ -12,10 +12,16 @@
       "supportsTablet": true
     },
     "android": {
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCV_KMd361LiXqgpElJRjjTYe5oKtuaG0A1"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.javedshamma.ULB_User_App"
     },
     "web": {
       "bundler": "metro",
@@ -24,6 +30,7 @@
     },
     "plugins": [
       "expo-router",
+     
       [
         "expo-splash-screen",
         {
@@ -33,9 +40,18 @@
           "backgroundColor": "#ffffff"
         }
       ]
+      
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b7874679-c03e-46c8-91cd-25249bb6736b"
+      }
     }
   }
 }
