@@ -46,8 +46,13 @@ const AddNewComplaint = () => {
                         <Image source={{uri:item.complainImage}} style={{width:100,height:100,borderRadius:10}}/>
                         <View style={{flex:1,padding:10}}>
                         <Text style={{textAlign:"center",fontSize:16,fontWeight:"bold"}}> Complaint ID: {item.complainID}</Text>
-                        <Text > complaint type: {item.complainType}</Text>
+                        <Text style={{textAlign:"center",fontSize:12,color:"black"}} > complaint type: {item.complainType}</Text>
+                        <Text style={{textAlign:"center",fontSize:12,color:"grey"}} > complaint Description: {item.complainDescription}</Text>
                         </View>
+                    <View style={{width:"20%", display:"flex", flexDirection:"column", justifyContent:"space-between" }}>
+                        <TouchableOpacity style={{backgroundColor:"blue",padding:10,borderRadius:10}}> <Text style={{color:"#fff", fontSize:12}}>See Response</Text></TouchableOpacity>
+                        <TouchableOpacity style={{backgroundColor:"green",padding:10,borderRadius:10}}> <Text style={{color:"#fff", fontSize:12}}>{item.resolveStatus}</Text></TouchableOpacity>
+                    </View>
                     </View>
                 ))}
             </View>

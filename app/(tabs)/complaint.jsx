@@ -108,7 +108,7 @@ const Complaints = () => {
   };
 
   const addNewComplaint = () => {
-    alert('Add New Complaint');
+
     router.push('/Add_New_Complaint');
   };
   const screenWidth = Dimensions.get('window').width;
@@ -148,17 +148,14 @@ const Complaints = () => {
             />
               <View style={{alignItems:'center',justifyContent:'center',marginTop:20}}>
                 <TouchableOpacity onPress={addNewComplaint} style={buttonStyle}>
-                  <Text style={{color:'#fff'}}>Add New Complaint</Text>
+                  <Text style={{color:'#fff'}}>See All Complaints</Text>
                 </TouchableOpacity>
               </View>
-            <Text style={{ fontSize: 18, fontWeight: '600', marginVertical: 15 }}>Older Complaints</Text>
-            <View style={{ backgroundColor: '#f1f1f1', padding: 10, marginBottom: 10 }}>
-              <Text style={{ fontWeight: 'bold' }}>Complaint #1</Text>
-              <Text>Status: Resolved</Text>
-              <Text>Response: Issue resolved on 10/04</Text>
-            </View>
+         
+            <View style={{marginTop:20, padding:10, marginBottom:25,backgroundColor:"#fff", borderRadius:10, borderWidth:1, borderColor:"grey"}}>
 
-            <Text style={{ fontSize: 18, fontWeight: '600', marginVertical: 15 }}>New Complaint</Text>
+         
+            <Text style={{ fontSize: 18, fontWeight: '600', marginVertical: 15 , color:"blue" ,textAlign:"center", padding:10, borderRadius:10}}> Add New Complaint</Text>
 
             <TextInput placeholder="Name" value={name} onChangeText={setName} style={inputStyle} />
             <TextInput placeholder="Phone Number" value={number} onChangeText={setNumber} keyboardType="phone-pad" style={inputStyle} />
@@ -199,6 +196,7 @@ const Complaints = () => {
             <TouchableOpacity style={{ ...buttonStyle, marginTop: 20,marginBottom:50 }} onPress={handleSubmit}>
               <Text style={{ color: '#fff' }}>Submit Complaint</Text>
             </TouchableOpacity>
+            </View>
           </ScrollView>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
