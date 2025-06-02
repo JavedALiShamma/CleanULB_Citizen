@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Dimensions
 import Carousel from 'react-native-reanimated-carousel';
 import { Ionicons } from '@expo/vector-icons';
 import ToolGrid from '../../compoents/Card';
+import { useNavigation } from 'expo-router';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -42,6 +43,11 @@ const Card = ({ title, subtitle, color, onPress }) => (
 );
 
 const HomeScreen = () => {
+  const navigation =useNavigation();
+  const handleUserCharge=()=>{
+   
+    navigation.navigate("userChargeSection");
+  }
   return (
     <>
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -93,7 +99,14 @@ const HomeScreen = () => {
       {/* Nearby From You */}
      
       <ToolGrid/>
-     
+     <View style={{width:"100%", marginBottom:50,flex:1, padding:10, alignContent:"center" }}>
+      <TouchableOpacity onPress={handleUserCharge} style={{width:"100%", backgroundColor:"#6495ED" , height:70 , borderRadius:15 , display:"flex",flexDirection:"row",alignItems:"center" , padding:10, justifyContent:"space-between"}}>
+
+      <Ionicons name='cash-outline' size={35} color={"white"}/>
+      <Text style={{fontSize:20, fontWeight:700, color:"white", marginLeft:10}}>Pay User Charge</Text>
+      <Ionicons name="arrow-forward-circle-outline" size={40} color={"white"}/>
+      </TouchableOpacity>
+      </View>
     </ScrollView>
     
     </>

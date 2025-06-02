@@ -1,7 +1,10 @@
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from 'expo-router';
 import React, { useRef, useState } from 'react';
 import { View, Text, StyleSheet, Dimensions,Image } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE }from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
+import COLORS from '../../constants/colors';
 
 
 const GOOGLE_MAPS_APIKEY = 'AIzaSyCV_KMd361LiXqgpElJRjjTYe5oKtuaG0A';
@@ -14,10 +17,17 @@ const AutoTipper = () => {
 
   const [distance, setDistance] = useState(null);
   const [duration, setDuration] = useState(null);
-
+   const navigation= useNavigation();
   return (
-    <View style={{ flex: 1 }}>
+    <>
+    <View style={{ flex: 2/2.8 }}>
+      <View style={{width:"100%" , height:50 , padding:10 , borderBottomColor:"green" , borderBottomWidth: 1, display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+        <Ionicons style={{position:"absolute", left:10 , top: 10}} onPress={()=>navigation.goBack()} name='arrow-back-outline' size={30} color={"green"}/>
+        <Text style={{textAlign:"center", fontSize: 18 , color:COLORS.primary , fontWeight:700}}> Locate garbgae collection vehicle</Text>
+      </View>
       <MapView
+       
+       
         ref={mapRef}
         style={styles.map}
         provider={PROVIDER_GOOGLE}
@@ -37,7 +47,7 @@ const AutoTipper = () => {
           destination={destination}
           apikey={GOOGLE_MAPS_APIKEY}
           
-          strokeWidth={6}
+          strokeWidth={4}
           strokeColor="green"
           onReady={result => {
             setDistance(result.distance);
@@ -59,15 +69,15 @@ const AutoTipper = () => {
         </View>
         <View style={styles.row}>
           <Text style={styles.label}>From:</Text>
-          <Text style={styles.value}>Thrift Mail Box</Text>
+          <Text style={styles.value}>Municipality</Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.label}>To:</Text>
-          <Text style={styles.value}>Julie Robinson</Text>
+          <Text style={styles.value}>Dumpsite Dhara </Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.label}>Weight:</Text>
-          <Text style={styles.value}>520 g</Text>
+          <Text style={styles.value}>1 TON</Text>
         </View>
         <View style={[styles.row, { marginTop: 12 }]}>
           <Text style={styles.status}>🟡 On the way</Text>
@@ -79,26 +89,31 @@ const AutoTipper = () => {
         </View>
       </View>
     </View>
+    <View style={{flex: 1/3.5}}>
+          <View></View>
+    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   map: {
-    flex: 1,
+    flex: 2/2.9,
   },
   bottomCard: {
     position: 'absolute',
     bottom: 0,
-    width: '100%',
+    width: '95%',
+    left:"2.5%",
+    right:"2.5%",
     backgroundColor: '#e7e7e7',
     padding: 20,
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
+    borderRadius:20,
     shadowColor: '#000',
     shadowOpacity: 0.2,
     shadowOffset: { width: 0, height: -2 },
     shadowRadius: 6,
-    elevation: 10,
+    elevation:1
    
   },
   row: {

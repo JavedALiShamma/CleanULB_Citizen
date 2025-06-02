@@ -9,7 +9,7 @@ import {
   Image
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useNavigation, useRouter } from 'expo-router';
 const data = [
   { title: 'Know your city', subtitle: 'Know about the city and the heritage', color: '#c9e0dd' ,titleColor:"#4e9c91"},
   { title: 'EO Message to citizens', subtitle: 'EO Message to the citizens', color: '#DDD6FE' ,titleColor:"#c6bdf0",iconpath:"../assets/images/auto-tipper.png"},
@@ -46,6 +46,7 @@ const Card = ({ title, subtitle, color, onPress, iconpath,titleColor }) => (
 
 const ToolGrid = () => {
   const router = useRouter();
+  const navigation=useNavigation();
   const handleCardPress = (title) => {
 
   
@@ -54,6 +55,9 @@ const ToolGrid = () => {
     }
     if(title=="Track your complaints"){
       router.push("/complaint");
+    }
+    if(title=="Near by Toilets"){
+      navigation.navigate("NearByToilets");
     }
 };
   return (
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     marginTop:10,
     padding: 12,
-    paddingBottom: 24,
+    paddingBottom: 0,
   },
   container: {
     flexDirection: 'row',

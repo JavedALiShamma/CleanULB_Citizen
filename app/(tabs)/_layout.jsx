@@ -46,6 +46,17 @@
       }}
       />
        <Tabs.Screen
+      name='Services'
+      options={{
+        title:"services",
+        tabBarIcon:(color,size)=>{
+          return(
+            <Ionicons name='cog-outline' color={COLORS.primary} size={24}/>
+          )
+        }
+      }}
+      />
+       <Tabs.Screen
       name='profile'
       options={{
         title:"Profile",
