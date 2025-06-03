@@ -9,6 +9,7 @@ import {
   I18nManager,
 } from 'react-native';
 import { FontAwesome5, MaterialCommunityIcons, Entypo } from '@expo/vector-icons';
+import { useNavigation } from 'expo-router';
 
 const translations = {
   en: {
@@ -34,13 +35,26 @@ const translations = {
 export default function ServicesSection() {
   const [lang, setLang] = useState('en');
   const t = translations[lang];
+  const navigation = useNavigation();
 
   const toggleLang = () => {
     const newLang = lang === 'en' ? 'hi' : 'en';
     I18nManager.forceRTL(newLang === 'hi');
     setLang(newLang);
   };
-
+const handleClick =(service)=>{
+    const title =service.title;
+    if(title =="File a Complaint"){
+      navigation.navigate("complaint");
+    }
+    /// Here we need to diplay FaecalAndCDform 
+    if(title =="Collect C&D Waste"){
+      navigation.navigate("FaecalAndCDForm");
+    }
+      if(title =="Collection Faecal Sludge (Septage)"){
+      navigation.navigate("FaecalAndCDForm");
+    }
+}
   return (
     <View style={styles.container}>
       {/* Language Toggle */}
@@ -53,7 +67,7 @@ export default function ServicesSection() {
 
       <ScrollView contentContainerStyle={styles.servicesWrapper}>
         {t.services.map((service, index) => (
-          <TouchableOpacity key={index} style={[styles.card, { backgroundColor: `${service.color}33` }]}>
+          <TouchableOpacity onPress={()=>{handleClick(service)}} key={index} style={[styles.card, { backgroundColor: `${service.color}33` }]}>
             <View style={styles.iconWrapper}>
               <FontAwesome5 name={service.icon} size={30} color={service.color} />
             </View>

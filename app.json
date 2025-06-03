@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Frontend",
+    "name": "ULB Citizens",
     "slug": "Frontend",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -14,7 +14,8 @@
     "android": {
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyCV_KMd361LiXqgpElJRjjTYe5oKtuaG0A1"
+          "apiKey": "AIzaSyCV_KMd361LiXqgpElJRjjTYe5oKtuaG0A"
+        
         }
       },
       "adaptiveIcon": {

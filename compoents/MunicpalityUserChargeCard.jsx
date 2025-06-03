@@ -2,10 +2,15 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import  {LinearGradient}  from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from 'expo-router';
 
 const ProfileCard = () => {
     const d= new Date();
     const month =d.getMonth();
+    const navigation =useNavigation();
+    const handlePayment=()=>{
+      navigation.navigate("RazorPaySection");
+    }
   return (
     <LinearGradient
       colors={['#3fb26d', '#93c643']}
@@ -36,7 +41,7 @@ const ProfileCard = () => {
           <Text style={styles.statLabel}>{d.getFullYear()}</Text>
         </View>
       </View>
-      <TouchableOpacity style={{width:"100%", height:50, borderRadius:12 , backgroundColor:"white", display:"flex", flexDirection:"row" ,gap: 10,alignItems:"center", justifyContent:"space-around"}}>
+      <TouchableOpacity onPress={handlePayment} style={{width:"100%", height:50, borderRadius:12 , backgroundColor:"white", display:"flex", flexDirection:"row" ,gap: 10,alignItems:"center", justifyContent:"space-around"}}>
         <Ionicons name='cash' size={30} color="#3fb26d"/>
         <Text style={{fontSize:22 , fontWeight:900 , color:"#3fb26d"}}>PAY</Text>
         <Ionicons name='arrow-forward-circle-outline' size={30} color={"#3fb26d"}/>

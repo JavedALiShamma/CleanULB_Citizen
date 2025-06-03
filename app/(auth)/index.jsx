@@ -12,7 +12,7 @@ export default function HomeScreen() {
     return (
       <View style={styles.container}>
         
-        <View style={{width:"50%", height:"30%", display:"flex",alignItems:"center", justifyContent:"center"}}>
+        <View style={{width:"80%", height:"30%", display:"flex",alignItems:"center", justifyContent:"center"}}>
           <Image
           source={require("../../assets/images/cleanCityNoBG.png")}
           resizeMethod='contain'
@@ -21,13 +21,16 @@ export default function HomeScreen() {
         </View>
         <Image
         source={require("../../assets/images/ulbLogo.png")}
-        style={{width:"100%", height:"20%"}}
+        style={{width:"100%", height:"25%"}}
         />
         <Text style={styles.message}>
           Through this app, you can:
           {"\n"}• Know your municipalality and help to make it clean 
           {"\n"}• File a complaint
           {"\n"}• Track auto tippers
+          {"\n"}• Locate nearby toilets
+          {"\n"}• Call for collection of Septage
+          {"\n"}• Call for collection of Construction and Demolition (C&D) waste
           {"\n"}Make your city beautiful 🌿
         </Text>
 

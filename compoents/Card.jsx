@@ -51,13 +51,23 @@ const ToolGrid = () => {
 
   
     if(title=="Track garbage Vehicle"){
-       router.push("/autotipper");
+      //  router.push("/autotipper");
+       navigation.navigate("autotipper",{"color":"#579cf2"})
     }
     if(title=="Track your complaints"){
-      router.push("/complaint");
+      // router.push("/complaint");
+      navigation.navigate("complaint" , {"color":"#FBCFE8"})
     }
     if(title=="Near by Toilets"){
-      navigation.navigate("NearByToilets");
+      // We need to send the user to the near by toilets page
+      navigation.navigate("NearByToilets" ,{"color":"#FCA5A5"});
+    }
+    if(title =="EO Message to citizens"){
+      // Here we will call EO message section
+      navigation.navigate("EOMessage");
+    }
+    if(title === "Know your city"){
+      navigation.navigate("knowYourCity", {"color":"#c9e0dd"})
     }
 };
   return (

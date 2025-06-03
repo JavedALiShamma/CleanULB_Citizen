@@ -21,6 +21,10 @@ import MapView, { Marker } from 'react-native-maps';
 import { Picker } from '@react-native-picker/picker';
 import { PieChart } from 'react-native-chart-kit';
 import { useRouter } from 'expo-router';
+import HeaderBar from '../../compoents/headerBar';
+import { Ionicons } from '@expo/vector-icons';
+import { useRoute } from '@react-navigation/native';
+import COLORS from "../../constants/colors"
 const Complaints = () => {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -31,7 +35,8 @@ const Complaints = () => {
   const [location, setLocation] = useState(null);
   
   const router = useRouter();
-
+   const route = useRoute();
+  const statusColr = route.params?.color || COLORS.primary;
   useEffect(() => {
     (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync();
@@ -127,9 +132,10 @@ const Complaints = () => {
         behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
       >
+        <HeaderBar props={{"title":"Complaint Overview", bgColor:"grey"}}/>
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView style={{ padding: 20 }} keyboardShouldPersistTaps="handled">
-            <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 10 }}>Complaints Overview</Text>
+          <ScrollView style={{ padding: 10 }} keyboardShouldPersistTaps="handled">
+           
 
             <PieChart
               data={pieData}
